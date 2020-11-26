@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modelo</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <h1>Formulário</h1>
+
+        <form action="/" method="POST" class="form">
+            <div class="item">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome">
+            </div>
+
+            <div class="item">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" name="sobrenome" id="sobrenome">
+            </div>
+
+            <div class="item">
+                <label for="cpf">CPF</label>
+                <input type="text" name="cpf" id="cpf">
+            </div>
+
+            <div class="item">
+                <label for="usuario">Usuário</label>
+                <input type="text" name="usuario" id="usuario">
+            </div>
+
+            <div class="item">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha">
+            </div>
+
+            <div class="item">
+                <label for="rep-senha">Repetir a senha</label>
+                <input type="password" name="rep-senha" id="rep-senha">
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <script src="./assets/js/validaCPF.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
