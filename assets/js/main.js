@@ -41,7 +41,10 @@ class Form {
             small.remove();
         }
 
-        if (this.isValid() && this.checkPass()) {
+        const isValid = this.isValid();
+        const checkPass = this.checkPass();
+
+        if (isValid && checkPass) {
             alert('Formulário enviado...');
             this.form.submit();
         }
@@ -73,8 +76,8 @@ class Form {
         const repSenha = this.form.querySelector('#rep-senha');
 
         if (senha.value !== repSenha.value) {
-            this.newError(senha, 'Senhas diferentes.');
-            this.newError(repSenha, 'Senhas direfentes.');
+            this.newError(senha, 'Senhas devem ser iguais.');
+            this.newError(repSenha, 'Senhas devem ser iguais.');
             valid = false;
         }
         return valid;
@@ -93,18 +96,27 @@ class Form {
             }
 
             if (input.name === 'cpf') {
-                const isValidCPF = CPF.validate(input.value);
-
-                if (!isValidCPF) {
+                if (!CPF.validate(input.value)) {
                     this.newError(input, `"${label}" esta inválido.`);
                     valid = false;
                 }
             }
 
-            if (input.name === 'nome') valid = this.caracter(input, label);
-            if (input.name === 'sobrenome') valid = this.caracter(input, label);
-            if (input.name === 'usuario') valid = this.caracter(input, label);
-            if (input.name === 'senha') valid = this.caracter(input, label);
+            if (input.name === 'nome') {
+                if (!this.caracter(input, label)) valid = false;
+            }
+
+            if (input.name === 'sobrenome') {
+                if (!this.caracter(input, label)) valid = false;
+            }
+
+            if (input.name === 'usuario') {
+                if (!this.caracter(input, label)) valid = false;
+            }
+
+            if (input.name === 'senha') {
+                if (!this.caracter(input, label)) valid = false;
+            }
         })
 
         return valid;
